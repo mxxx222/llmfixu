@@ -2,6 +2,12 @@
 
 ## Setup
 
+Start services:
+
+```
+docker compose up -d
+```
+
 Pull embedding model:
 
 ```
@@ -34,4 +40,6 @@ Ask a question:
 ```
 python query_chroma.py "Mikä on dokumentin pääpointti?"
 ```
+
+Open WebUI runs at [http://localhost:3000](http://localhost:3000).
 
