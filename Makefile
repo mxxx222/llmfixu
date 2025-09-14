@@ -35,6 +35,9 @@ query: ## Käynnistä query-skripti
 pdf: ## Käynnistä PDF-käsittelyskripti
 	python scripts/pdf.py
 
+example: ## Näytä embedding-esimerkki
+	python scripts/example.py
+
 pull-models: ## Lataa suositut mallit Ollamaan
 	docker exec ollama ollama pull llama2:7b
 	docker exec ollama ollama pull orca-mini:3b
