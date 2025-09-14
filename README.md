@@ -41,5 +41,5 @@ Ask a question:
 python query_chroma.py "Mikä on dokumentin pääpointti?"
 ```
 
-Open WebUI runs at [http://localhost:3000](http://localhost:3000).
+Open WebUI runs at [http://localhost:${OPENWEBUI_PORT:-3000}](http://localhost:3000) and n8n is available at [http://localhost:5678](http://localhost:5678).
 
