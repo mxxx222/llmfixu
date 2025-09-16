@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "diag",
+      "type": "shell",
+      "command": "curl $CHROMA_HOST/api/v1/heartbeat && curl $OLLAMA_HOST/api/tags",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports: ["11434:11434"]
+    volumes: ["ollama:/root/.ollama"]
+  chroma:
+    image: chromadb/chroma:latest
+    ports: ["8000:8000"]
+    volumes: ["chroma:/chroma"]
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    depends_on: [ollama]
+    ports: ["${OPENWEBUI_PORT:-8080}:8080"]
+    environment:
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL}
+      WEBUI_AUTH: ${WEBUI_AUTH}
+      WEBUI_USERNAME: ${WEBUI_USERNAME}
+      WEBUI_PASSWORD: ${WEBUI_PASSWORD}
+    volumes: ["openwebui:/app/backend/data"]
+  n8n:
+    image: n8nio/n8n:latest
+    ports: ["5678:5678"]
+    environment:
+      - N8N_PORT=5678
+volumes: { ollama: {}, chroma: {}, openwebui: {} }
